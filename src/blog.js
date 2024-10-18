@@ -1,4 +1,4 @@
-// Create an array of blog objects
+//Blog items
 var blogs = [
     {
         title: "SOFTWARE ENGINEERING IN ROME",
@@ -17,7 +17,7 @@ var blogs = [
         slug: "making-carbonara"
     },
 ];
-// Get the blog container from the DOM
+//transport to HTML using ID
 var blogContainer = document.getElementById('blog-container');
 // Function to display blogs dynamically with links to individual pages
 function displayBlogs(blogList) {
@@ -29,7 +29,7 @@ function displayBlogs(blogList) {
         blogDiv.className = "blog-entry";
         // Create title with a link to the individual blog page
         var blogTitleLink = document.createElement('a');
-        blogTitleLink.href = '/blogs/' + blog.slug + '.html';
+        blogTitleLink.href = '/html/blogs/' + blog.slug + '.html';
         blogTitleLink.textContent = blog.title;
         // Create date (p)
         var blogDate = document.createElement('p');
@@ -41,14 +41,13 @@ function displayBlogs(blogList) {
         var blogImage = document.createElement('img');
         blogImage.src = blog.image;
         blogImage.alt = blog.imageAlt;
-        // Append title (as a link), date, image, and description to the blog div
+        // Append to blog div
         blogDiv.appendChild(blogTitleLink);
         blogDiv.appendChild(blogDate);
         blogDiv.appendChild(blogImage);
         blogDiv.appendChild(blogDescription);
-        // Append the blog div to the blog container
+        // Append to blog container
         blogContainer.appendChild(blogDiv);
     });
 }
-// Call the function to display blogs
 displayBlogs(blogs);
