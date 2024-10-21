@@ -44,8 +44,8 @@ function displayBlogs(blogList) {
         // Append elements to blog div
         blogDiv.appendChild(blogImage);
         blogDiv.appendChild(blogTitleLink);
-        blogDiv.appendChild(blogDate);
         blogDiv.appendChild(blogDescription);
+        blogDiv.appendChild(blogDate);
         // Append blog div to blog container
         blogContainer.appendChild(blogDiv);
     });
