@@ -17,7 +17,7 @@ var blogs = [
         slug: "making-carbonara"
     },
 ];
-//transport to HTML using ID
+// Get blog container by ID
 var blogContainer = document.getElementById('blog-container');
 // Function to display blogs dynamically with links to individual pages
 function displayBlogs(blogList) {
@@ -31,8 +31,8 @@ function displayBlogs(blogList) {
         var blogTitleLink = document.createElement('a');
         blogTitleLink.href = '/html/blogs/' + blog.slug + '.html';
         blogTitleLink.textContent = blog.title;
-        // Create date (p)
-        var blogDate = document.createElement('p');
+        // Create date (time)
+        var blogDate = document.createElement('time');
         blogDate.textContent = blog.date;
         // Create description (p)
         var blogDescription = document.createElement('p');
@@ -41,13 +41,14 @@ function displayBlogs(blogList) {
         var blogImage = document.createElement('img');
         blogImage.src = blog.image;
         blogImage.alt = blog.imageAlt;
-        // Append to blog div
+        // Append elements to blog div
+        blogDiv.appendChild(blogImage);
         blogDiv.appendChild(blogTitleLink);
         blogDiv.appendChild(blogDate);
-        blogDiv.appendChild(blogImage);
         blogDiv.appendChild(blogDescription);
-        // Append to blog container
+        // Append blog div to blog container
         blogContainer.appendChild(blogDiv);
     });
 }
+// Call the function to display blogs
 displayBlogs(blogs);

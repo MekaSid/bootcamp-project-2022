@@ -9,7 +9,6 @@ type Blog = {
 }
 //Blog items
 const blogs: Blog[] = [
-    
     {
         title: "SOFTWARE ENGINEERING IN ROME",
         date: "10-17-2024",
@@ -28,7 +27,7 @@ const blogs: Blog[] = [
     },
 ];
 
-//transport to HTML using ID
+// Get blog container by ID
 const blogContainer = document.getElementById('blog-container');
 
 // Function to display blogs dynamically with links to individual pages
@@ -42,12 +41,11 @@ function displayBlogs(blogList: Blog[]) {
 
         // Create title with a link to the individual blog page
         const blogTitleLink = document.createElement('a');
-
-        blogTitleLink.href = '/html/blogs/' + blog.slug +'.html';
+        blogTitleLink.href = '/html/blogs/' + blog.slug + '.html';
         blogTitleLink.textContent = blog.title;
 
-        // Create date (p)
-        const blogDate = document.createElement('p');
+        // Create date (time)
+        const blogDate = document.createElement('time');
         blogDate.textContent = blog.date;
 
         // Create description (p)
@@ -59,15 +57,16 @@ function displayBlogs(blogList: Blog[]) {
         blogImage.src = blog.image;
         blogImage.alt = blog.imageAlt;
 
-        // Append to blog div
+        // Append elements to blog div
+        blogDiv.appendChild(blogImage);
         blogDiv.appendChild(blogTitleLink);
         blogDiv.appendChild(blogDate);
-        blogDiv.appendChild(blogImage);
         blogDiv.appendChild(blogDescription);
 
-        // Append to blog container
+        // Append blog div to blog container
         blogContainer.appendChild(blogDiv);
     });
 }
 
+// Call the function to display blogs
 displayBlogs(blogs);

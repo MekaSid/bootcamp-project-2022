@@ -267,38 +267,61 @@ textarea {
     visibility: visible;    /* Make the image and text visible */
     opacity: 1;             /* Fade the image and text in */
 }
-
 .blog-entry {
-    
-    flex-direction: column;
+    display: flex; /* Flexbox layout for image and text */
+    flex-direction: row; /* Image on the left, text on the right */
+    justify-content: flex-start; /* Aligns content from the left */
+    align-items: flex-start; /* Aligns items at the top */
     border: 1px solid #ccc;
-    margin-bottom: 5px;
-    padding: 5px;
+    margin-bottom: 20px;
+    padding: 20px;
     border-radius: 8px;
     background-color: #f9f9f9;
-    width: 30%;
-    margin: 20px auto;
+    width: 70%; /* Adjust width as necessary */
+    margin: 20px auto; /* Center align and add space */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Slight shadow */
 }
 
+/* Image in the blog entry */
+.blog-entry img {
+    width: 30%; /* Control image width */
+    height: auto;
+    margin-right: 20px; /* Space between image and text */
+    border-radius: 10px;
+    object-fit: cover; /* Ensures the image fits neatly */
+}
+
+/* Blog text container */
+.blog-entry div {
+    flex: 1; /* Text takes remaining space */
+}
+
+/* Blog title link */
 .blog-entry a {
     font-size: 24px;
     font-weight: bold;
-    color: #000000;
+    color: #000;
     text-decoration: none;
+    margin-bottom: 5px; /* Space between title and date */
+    display: block; /* Block element for better spacing control */
 }
 
+/* Blog title hover effect */
 .blog-entry a:hover {
     color: #565656;
 }
 
+/* Date text (time element) */
+.blog-entry time {
+    font-size: 14px;
+    color: #666; /* Lighter color for the date */
+    margin-bottom: 10px; /* Space between date and description */
+    display: block; /* Ensures date is on its own line */
+}
+
+/* Description text (p element) */
 .blog-entry p {
     font-size: 16px;
     color: #333;
 }
 
-.blog-entry img {
-    width: 80%;
-    height: auto;
-    margin-top: 10px;
-    border-radius: 10px;
-}
